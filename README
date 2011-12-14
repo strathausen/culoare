@@ -3,6 +3,15 @@ culoare
 
 colours for node served with hot coffee
 
+current state
+–––––––––––––
+
+normal, light and bg colours working. zalgo does not work. rainbow is not yet
+ported either.
+
+about and credits
+–––––––––––––––––
+
 basically i cloned colors.js from Marak/cloudhead and just stripped some code
 like the browser mode - who would want to use that? - and the string prototype
 blacklist, since i am not the programmer's nanny :-) also the functionality

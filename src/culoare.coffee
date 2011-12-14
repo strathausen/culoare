@@ -28,22 +28,32 @@ w = (a, o) ->
 addProperty = (color, func) ->
   String::__defineGetter__ color, func
 
-styles =
+# now to the colour styling
+module.exports.styles = styles =
   bold:         w 1, 22
   italic:       w 3, 23
   underline:    w 4, 24
-  inverse:      w 7, 24
+  inverse:      w 7, 27
   grey:         w 90, 39
+  bggrey:       w 100, 49
 
+# common list of common names
 colors =
   [ 'black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white' ]
 
+# light and normal colours along with their start- and reset-values
+modes = [
+  [ '', [ 30, 39 ] ]
+  [ 'bg', [ 40, 49 ] ]
+  [ 'light', [ 90, 39 ] ]
+  [ 'bglight', [ 100, 49 ] ]
+]
 # more generic color styles
-for i, c in colors
-  styles[i] = w 30 + i, 39
-  # do light colours, but don't do "lightblack"
-  unless i == 1
-    styles["light#{i}"] = w 36 + i, 39
+for c, i in colors
+  for [ mode, [ set, reset ] ] in modes
+    # do light colours, but don't do "lightblack" or "lightwhite"
+    unless mode == 'light' and set in [0, 7]
+      styles["#{mode + c}"] = w "#{set + i}", reset
 
 # wrap up a string with a nice coloured coat
 stylize = (str, style) ->
@@ -51,14 +61,17 @@ stylize = (str, style) ->
 
 # iterate through the styles and apply them initially
 for style of styles
-  addProperty style, ->
-    stylize this, style
+  addProperty style, ((style) ->
+    -> stylize this, style) style
 
 applyTheme = (theme) ->
   # iterate through theme properties
   for k, v of theme
     addProperty k, ->
       stylize this, v
+
+# the rainbow
+rainbow = [ 'red', 'yellow', 'green', 'cyan', 'blue', 'magenta' ]
 
 # please no
 zalgo = (text, options) ->
@@ -108,7 +121,7 @@ zalgo = (text, options) ->
   is_char = (character) ->
     bool = false
     all.filter (i) ->
-      bool = (i === character)
+      bool = (i == character)
 
     bool
 
@@ -141,7 +154,7 @@ zalgo = (text, options) ->
           counts.down = (randomNumber 8) + 1
 
       for index in ["up", "mid", "down"]
-        for i = 0 ; i <= counts[index]; i++
+        for i in [0..i]
           if options[index]
             result = result + soul[index][randomNumber soul[index].length]
     result
