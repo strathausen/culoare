@@ -33,6 +33,7 @@ module.exports.styles = styles =
   bold:         w 1, 22
   italic:       w 3, 23
   underline:    w 4, 24
+  blink:        w 5, 25
   inverse:      w 7, 27
   grey:         w 90, 39
   bggrey:       w 100, 49
