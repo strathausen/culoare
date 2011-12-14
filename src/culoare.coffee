@@ -17,15 +17,15 @@ ideas and code stolen from colors.js
 ###
 
 # string colour escape sequencer
-e = (x) ->
+module.exports.escape = e = (x) ->
   '\x1b[' + x + 'm'
 
 # wrapper that returns an array with two escape sequences for wrapping
-w = (a, o) ->
+module.exports.wrap = w = (a, o) ->
   [ (e a), (e o) ]
 
 # magic String class enhancer
-addProperty = (color, func) ->
+module.exports.addProperty = addProperty = (color, func) ->
   String::__defineGetter__ color, func
 
 # now to the colour styling
@@ -49,6 +49,7 @@ modes = [
   [ 'light', [ 90, 39 ] ]
   [ 'bglight', [ 100, 49 ] ]
 ]
+
 # more generic color styles
 for c, i in colors
   for [ mode, [ set, reset ] ] in modes
@@ -65,14 +66,49 @@ for style of styles
   addProperty style, ((style) ->
     -> stylize this, style) style
 
-applyTheme = (theme) ->
+module.exports.applyTheme = applyTheme = (theme) ->
   # iterate through theme properties
   for k, v of theme
-    addProperty k, ->
-      stylize this, v
+    addProperty k, ((v) ->
+      -> stylize this, v) v
+
+sequencer = (map) ->
+  -> @split('').map(map).join ''
+
+module.exports.addSequencer = addSequencer = (name, map) ->
+  addProperty name, sequencer map
 
 # the rainbow
 rainbow = [ 'red', 'yellow', 'green', 'cyan', 'blue', 'magenta' ]
+rainbowMap = do ->
+  (letter, i, exploded) ->
+    if letter == ' '
+      letter
+    else
+      stylize letter, rainbow[i++ % rainbow.length]
+
+addSequencer 'rainbow', rainbowMap
+
+# the zebra
+addSequencer 'zebra', (letter, i, exploded) ->
+  if i % 2 == 0 then letter else letter.inverse
+
+module.exports.themes = themes = {}
+
+module.exports.setTheme = (theme) ->
+  if typeof theme == 'string'
+    try
+      themes[theme] = require theme
+      applyTheme themes[theme]
+      themes[theme]
+    catch err
+      console.log err
+      err
+  else
+    applyTheme theme
+
+addProperty 'stripColors', ->
+  "#{this}".replace /\u001b\[\d+m/g, ''
 
 # please no
 zalgo = (text, options) ->
@@ -119,13 +155,12 @@ zalgo = (text, options) ->
   randomNumber = (range) ->
     Math.floor Math.random() * range
 
+  # tests if... yeah, what does it test actually?
   is_char = (character) ->
     bool = false
     all.filter (i) ->
       bool = (i == character)
-
     bool
-
 
   heComes = (text, options={}) ->
     result = ''
@@ -138,7 +173,7 @@ zalgo = (text, options) ->
       if is_char l
         continue
       
-      result = result + text[l]
+      result = result + l
       counts = up: 0, down: 0, mid: 0
       switch options.size
         when 'mini'
@@ -155,13 +190,12 @@ zalgo = (text, options) ->
           counts.down = (randomNumber 8) + 1
 
       for index in ["up", "mid", "down"]
-        for i in [0..i]
+        for i in [0..counts[index]]
           if options[index]
             result = result + soul[index][randomNumber soul[index].length]
     result
   
   heComes text
-
 
 # don't summon zalgo
 addProperty 'zalgo', ->

@@ -6,8 +6,12 @@ colours for node served with hot coffee
 current state
 –––––––––––––
 
-normal, light and bg colours working. zalgo does not work. rainbow is not yet
-ported either.
+normal, light and bg colours working. zalgo works. rainbow works.
+
+usage
+–––––
+
+see the example.coffee for examples
 
 about and credits
 –––––––––––––––––
@@ -29,6 +33,6 @@ via something like colors.red("...")
 
 if there's something you miss i might add it.
 
-so thanks to Marak for the cool stuff and to jeremy for the cool language.
+so thanks to Marak for the cool stuff and to Jeremy for the cool language.
 
 enjoy.

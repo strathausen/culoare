@@ -2,7 +2,7 @@
   "author": "Johann Philipp Strathausen <strathausen@gmail.com> (strathausen.eu)",
   "name": "culoare",
   "description": "Colours for the node console, served with hot coffee",
-  "version": "0.9.9",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/strathausen/culoare.git"
