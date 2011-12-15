@@ -50,7 +50,7 @@ modes = [
   [ 'bglight', [ 100, 49 ] ]
 ]
 
-# more generic color styles
+# more generic colour styles
 for c, i in colors
   for [ mode, [ set, reset ] ] in modes
     # do light colours, but don't do "lightblack" or "lightwhite"
@@ -58,8 +58,11 @@ for c, i in colors
       styles["#{mode + c}"] = w "#{set + i}", reset
 
 # wrap up a string with a nice coloured coat
-stylize = (str, style) ->
-  styles[style].join str
+stylize = (str, style) -> # awesome! yeah, baby!!
+  (([a, o]) ->
+    code = o.replace /\u001b\[(\d+)m/g, '$1'
+    [a, o].join str.replace o, a
+  ) styles[style]
 
 # iterate through the styles and apply them initially
 for style of styles
