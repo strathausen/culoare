@@ -3,6 +3,7 @@
   "name": "culoare",
   "description": "Colours for the node console, served with hot coffee",
   "version": "1.0.1",
+  "homepage": "https://github.com/strathausen/culoare",
   "repository": {
     "type": "git",
     "url": "git://github.com/strathausen/culoare.git"
