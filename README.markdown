@@ -3,7 +3,7 @@ culoare
 
 colours for node served with hot coffee
 
-[Imgur](http://i.imgur.com/EW6Jv.gif)
+<img src="http://i.imgur.com/EW6Jv.gif" />
 
 current state
 -------------
