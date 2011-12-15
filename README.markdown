@@ -4,17 +4,27 @@ culoare
 colours for node served with hot coffee
 
 current state
-–––––––––––––
+-------------
 
-normal, light and bg colours working. zalgo works. rainbow works.
+normal, light and bg colours working. zalgo. rainbow. this library should be
+good as it is and never be outdated, because it is supposed to do only one
+task - even if i won't work on it anymore, it is save to be used.
 
 usage
-–––––
+-----
 
-see the example.coffee for examples
+just use strings like this:
+
+```coffee
+require 'culoare'
+
+console.log 'coloured string'.lightred.bold.underline
+```
+
+see the example.coffee for examples.
 
 about and credits
-–––––––––––––––––
+-----------------
 
 basically i cloned colors.js from Marak/cloudhead and just stripped some code
 like the browser mode - who would want to use that? - and the string prototype
