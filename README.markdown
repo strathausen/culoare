@@ -13,7 +13,7 @@ gives your console output light and bg colours, zebra, zalgo. and rainbow.
 current state
 -------------
 
-this library should be good as it is and not outdate due, to its limited
+this library should be good as it is and not outdate, due to its limited
 purpose. even if i won't work on it anymore, it should save to be used and
 rare updates should be considered as a sign of quality.
 
