@@ -60,13 +60,13 @@ for c, i in colors
       styles["#{mode + c}"] = w "#{set + i}", reset
 
 # wrap up a string with a nice coloured coat
-stylize = (str, style) -> # awesome! yeah, baby!!
-  (([a, o]) ->
-    code = o.replace /\u001b\[(\d+)m/g, '$1'
-    if code
-      s = new RegExp '\\u001b\\[' + code + 'm', 'g'
-    [a, o].join str.replace s, a
-  ) styles[style]
+stylize = (str, style) ->
+  # awesome! yeah, baby!!
+  [a, o] = styles[style]
+  # get the reset colour code (if there is one)
+  code = o.replace /\u001b\[(\d+)m/g, '$1'
+  # make it a regexp and replace all occurences with the start colour code
+  [a, o].join str.replace (new RegExp '\\u001b\\[' + code + 'm', 'g'), a
 
 # iterate through the styles and apply them initially
 for style of styles

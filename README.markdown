@@ -23,6 +23,17 @@ require 'culoare'
 console.log 'coloured string'.lightred.bold.underline
 ```
 
+culoare also supports great nesting of colours. this code
+
+```coffee
+console.log "green text #{'with'.yellow} text in #{'many'.red} different
+ #{'colours'.rainbow} nested that #{'goes on'.zebra} in green".green
+```
+
+would result in something like
+
+<span style="color:green">green text with text in many different colours nested that goes on in green</span>
+
 see the example.coffee for examples.
 
 about and credits

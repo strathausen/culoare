@@ -1,6 +1,6 @@
 colors = require './src/culoare'
 console.log ('a green ' + 'with '.yellow + 'text in ' + 'many '.red +
-  'different ' + 'colours'.rainbow + ' nested ' + 'goes on'.zebra +
+  'different ' + 'colours'.rainbow + ' nested that ' + 'goes on'.zebra +
   ' in green').green
 console.log 'green text'.green, 'and lightgreen text'.lightgreen
 console.log 'and yellow bold underlined text'.yellow.bold.underline
@@ -34,7 +34,7 @@ colors.addSequencer "random", do ->
     else
       letter[available[Math.round Math.random() * (available.length - 1)]]
 
-console.log "AMERICA! F--K YEAH!".america
+console.log "AMERICA! FORK YEAH!".america
 console.log "So apparently I've been to Mars, with all the little green men.
  But you know, I don't recall.".random
 
