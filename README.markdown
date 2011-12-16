@@ -5,17 +5,22 @@ colours for node served with hot coffee
 
 <img src="http://i.imgur.com/EW6Jv.gif" />
 
+what it does
+------------
+
+gives your console output light and bg colours, zebra, zalgo. and rainbow. 
+
 current state
 -------------
 
-normal, light and bg colours working. zalgo. rainbow. this library should be
-good as it is and never be outdated, because it is supposed to do only one
-task - even if i won't work on it anymore, it is save to be used.
+this library should be good as it is and not outdate due, to its limited
+purpose. even if i won't work on it anymore, it should save to be used and
+rare updates should be considered as a sign of quality.
 
 usage
 -----
 
-just use strings like this:
+easy. just use strings like this:
 
 ### basic
 
@@ -51,8 +56,8 @@ colors.setTheme
   warn: [ 'yellow', 'bold', 'underline' ]
 ```
 
-then you can say `console.log 'this is a warning'.warning` and have a yellow,
-underlined and bold warning text.
+whereas `console.log 'this is a warning'.warning` would provide you with a 
+yellow, underlined and bold warning text.
 
 ### and much more
 
@@ -68,7 +73,8 @@ that would let you do colors.red("my colorstring") did not match my taste.
 
 i then ported all the cool stuff to the coolest language ever and added some 
 more colours. i don't know what or who zalgo is and what it is good for, so the
-only logical consequence was to just leave it in place.
+only logical consequence was to just leave it in place (and i'm not actually 
+sure if i did the porting of zalgo right).
 
 there's an additional feature called .light that will convert the colours to
 their lighter counterpart.
@@ -78,6 +84,7 @@ via something like colors.red("...")
 
 if there's something you miss i might add it.
 
-so thanks to Marak for the cool stuff and to Jeremy for the cool language.
+so thanks to Marak for the cool stuff and to Jeremy for the cool language and
+thanks to all the other guys that worked on colors.js
 
 enjoy.
