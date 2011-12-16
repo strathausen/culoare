@@ -44,13 +44,13 @@ console.log "So apparently I've been to Mars, with all the little green men.
 # Load theme with JSON literal
 colors.setTheme
   silly: 'rainbow',
-  input: 'grey',
+  input: [ 'grey', 'bold' ],
   verbose: 'cyan',
   prompt: 'grey',
   info: 'green',
   data: 'grey',
   help: 'cyan',
-  warn: 'yellow',
+  warn: [ 'yellow', 'bold', 'underline' ],
   debug: 'blue',
   error: 'red'
 

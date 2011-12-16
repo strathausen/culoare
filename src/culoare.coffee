@@ -61,12 +61,11 @@ for c, i in colors
 
 # wrap up a string with a nice coloured coat
 stylize = (str, style) ->
-  # awesome! yeah, baby!!
+  # destruct
   [a, o] = styles[style]
-  # get the reset colour code (if there is one)
-  code = o.replace /\u001b\[(\d+)m/g, '$1'
-  # make it a regexp and replace all occurences with the start colour code
-  [a, o].join str.replace (new RegExp '\\u001b\\[' + code + 'm', 'g'), a
+  # make reset code a regex and replace all occurences with start colour code
+  [a, o].join str.replace (
+    new RegExp (o.replace /\u001b\[/g, '\\u001b\\['), 'g'), a
 
 # iterate through the styles and apply them initially
 for style of styles
@@ -76,8 +75,15 @@ for style of styles
 module.exports.applyTheme = applyTheme = (theme) ->
   # iterate through theme properties
   for k, v of theme
+    v = [ v ] if typeof v == 'string'
     addProperty k, ((v) ->
-      -> stylize this, v) v
+      ->
+        str = this
+        for p in v
+          str = stylize str, p
+        str
+    ) v
+  null # later maybe return the theme or something
 
 sequencer = (map) ->
   -> @split('').map(map).join ''
