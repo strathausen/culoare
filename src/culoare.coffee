@@ -28,7 +28,7 @@ module.exports.wrap = w = (a, o) ->
 
 # magic String class enhancer
 module.exports.addProperty = addProperty = (color, func) ->
-  String::__defineGetter__ color, func
+  Object.defineProperty String::, color, get: func
 
 # now to the colour styling
 module.exports.styles = styles =
