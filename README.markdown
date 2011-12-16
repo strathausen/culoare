@@ -20,7 +20,7 @@ rare updates should be considered as a sign of quality.
 usage
 -----
 
-easy. just use strings like this:
+easy. just use strings like this
 
 ### basic
 
@@ -56,7 +56,7 @@ colors.setTheme
   warn: [ 'yellow', 'bold', 'underline' ]
 ```
 
-whereas `console.log 'this is a warning'.warning` would provide you with a 
+whereas `console.log 'this is a warning'.warn` would provide you with a 
 yellow, underlined and bold warning text.
 
 ### and much more
