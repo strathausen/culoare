@@ -11,6 +11,8 @@ then require it and from then on do "my coloured string".yellow.bold
 
 @author Johann Philipp Strathausen <strathausen@gmail.com>
 
+@license MIT
+
 ideas and code stolen from colors.js
   https://github.com/Marak/colors.js
   (npm install colors)
@@ -61,7 +63,9 @@ for c, i in colors
 stylize = (str, style) -> # awesome! yeah, baby!!
   (([a, o]) ->
     code = o.replace /\u001b\[(\d+)m/g, '$1'
-    [a, o].join str.replace o, a
+    if code
+      s = new RegExp '\\u001b\\[' + code + 'm', 'g'
+    [a, o].join str.replace s, a
   ) styles[style]
 
 # iterate through the styles and apply them initially

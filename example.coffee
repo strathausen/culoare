@@ -1,6 +1,7 @@
 colors = require './src/culoare'
-console.log ('a green string ' + 'with'.red + ' nested ' + 'red'.red +
-  ' goes on green').green
+console.log ('a green ' + 'with '.yellow + 'text in ' + 'many '.red +
+  'different ' + 'colours'.rainbow + ' nested ' + 'goes on'.zebra +
+  ' in green').green
 console.log 'green text'.green, 'and lightgreen text'.lightgreen
 console.log 'and yellow bold underlined text'.yellow.bold.underline
 console.log 'red'.red, 'lightred'.lightred, 'and grey'.grey, 'as bg'.bggrey
