@@ -17,11 +17,15 @@ usage
 
 just use strings like this:
 
+### basic
+
 ```coffee
 require 'culoare'
 
 console.log 'coloured string'.lightred.bold.underline
 ```
+
+### nesting
 
 culoare also supports great nesting of colours. this code
 
@@ -34,7 +38,25 @@ would result in something like
 
 <img src="http://i.imgur.com/WrDB7.png" />
 
-see the example.coffee for examples.
+### themes
+
+you can define themes and pass strings or arrays of strings
+
+```coffee
+colors = require 'culoare'
+
+colors.setTheme
+  silly: 'rainbow'
+  input: [ 'grey', 'bold' ]
+  warn: [ 'yellow', 'bold', 'underline' ]
+```
+
+then you can say `console.log 'this is a warning'.warning` and have a yellow,
+underlined and bold warning text.
+
+### and much more
+
+see the example.coffee for more examples.
 
 about and credits
 -----------------
