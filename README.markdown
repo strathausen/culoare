@@ -32,7 +32,7 @@ console.log "green text #{'with'.yellow} text in #{'many'.red} different
 
 would result in something like
 
-<span style="color:green">green text with text in many different colours nested that goes on in green</span>
+<img src="http://i.imgur.com/WrDB7.png" />
 
 see the example.coffee for examples.
 
