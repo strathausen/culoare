@@ -2,7 +2,7 @@
   "author": "Johann Philipp Strathausen <strathausen@gmail.com> (strathausen.eu)",
   "name": "culoare",
   "description": "Colours for the node console, served with hot coffee",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "homepage": "https://github.com/strathausen/culoare",
   "repository": {
     "type": "git",
@@ -11,7 +11,7 @@
   "keywords": ["colors", "colours", "console", "ansi", "cli", "colors.js", "logging", "xterm", "terminal"],
   "main": "./lib/culoare.js",
   "engines": {
-    "node": "0.6.x"
+    "node": ">= 0.6.0"
   },
   "dependencies": {},
   "devDependencies": {}
