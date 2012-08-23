@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/strathausen/culoare.png)](http://travis-ci.org/strathausen/culoare)
 culoare
 =======
 
