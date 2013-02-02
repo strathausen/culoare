@@ -1,53 +1,72 @@
-culoare
+Culoare
 =======
 
-colours for node served with hot coffee
+Colours for the node.js console.
+
+It's meant as an alternative to the npm module `colors`
+for people that prefer not to extend build-in types.
+
+Culoare does not extend the `String` class by default.
 
 <img src="http://i.imgur.com/EW6Jv.gif" />
 
-what it does
+What it does
 ------------
 
-gives your console output light and bg colours, zebra, zalgo. and rainbow. 
+Gives your console output light and background colours,
+zebra, zalgo. and rainbow.
 
-current state
+Current state
 -------------
 
-this library should be good as it is and not outdate, due to its limited
-purpose. even if i won't work on it anymore, it should save to be used and
-rare updates should be considered as a sign of quality.
+This library should be good as it is and not outdate,
+due to its limited purpose.
+Even if i won't work on it anymore,
+it should save to be used
+and rare updates should be considered as a sign of quality.
 
-usage
+Usage
 -----
 
-easy. just use strings like this
+Easy. Just use strings like this
 
-### basic
+### Basic
 
-```coffee
-require 'culoare'
+Note: Calling `infect()` extrends the string class.
 
-console.log 'coloured string'.lightred.bold.underline
+```js
+require('culoare').infect();
+
+console.log('coloured string'.lightred.bold.underline);
 ```
 
-### nesting
+### Nesting
 
-culoare also supports great nesting of colours. this code
+Culoare can nest colours.
 
-```coffee
+```js
 console.log "green text #{'with'.yellow} text in #{'many'.red} different
  #{'colours'.rainbow} nested that #{'goes on'.zebra} in green".green
 ```
 
-would result in something like
+This would result in something like:
 
 <img src="http://i.imgur.com/WrDB7.png" />
 
-### themes
+### Without extending the String type
+
+```js
+var c = require('culoare');
+console.log(c('a green string').green);
+// or
+console.log(c.green('another green string'));
+```
+
+### Themes
 
 you can define themes and pass strings or arrays of strings
 
-```coffee
+```js
 colors = require 'culoare'
 
 colors.setTheme
